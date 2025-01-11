@@ -1,0 +1,19 @@
+{
+  "name": "angular-app-server",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "npm-run-all -p backend-tsc frontend",
+    "frontend": "cd /Users/ethanknop/Documents/gif-server/frontend && ng serve --host 0.0.0.0",
+    "backend-tsc": "cd /Users/ethanknop/Documents/gif-server/backend && npx ts-node server.ts"
+  },
+  "private": true,
+  "dependencies": {
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

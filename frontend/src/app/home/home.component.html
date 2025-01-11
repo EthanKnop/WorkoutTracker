@@ -1,0 +1,50 @@
+<div class="home-mobile">
+
+    <div class="machine-list-container">
+        <app-machine *ngFor="let machine of filteredMachines()" [machine]="machine"></app-machine>
+
+        <div class="add-machine-button" *ngIf="!this.machineService.isAddingNewMachine" (click)="this.machineService.isAddingNewMachine = true">
+            <!-- bootstrap icon for plus  -->
+            <i class="bi bi-plus-circle"></i>
+            <p>Add Machine</p>
+        </div>
+
+        <div class="add-machine-card" *ngIf="this.machineService.isAddingNewMachine">
+
+            <div class="top-half">
+                <input type="text" placeholder="Name" #machineNameInput class="machine-name-input" [value]="newMachineName" (input)="newMachineName = machineNameInput.value">
+
+                <div class="btn-group" role="group">
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="Arms" (click)="newMachineType = 'Arms'">
+                    <label class="btn btn-outline-light btn-sm" for="btnradio1">Arms</label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="Legs" (click)="newMachineType = 'Legs'">
+                    <label class="btn btn-outline-light btn-sm" for="btnradio2">Legs</label>
+                  
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" value="Other" (click)="newMachineType = 'Other'">
+                    <label class="btn btn-outline-light btn-sm" for="btnradio3">Other</label>
+                </div>
+
+            </div>
+
+            <div class="bottom-half">
+                <button class="btn btn-light" (click)="this.machineService.isAddingNewMachine = false">
+                    <i class="bi bi-x"></i>
+                    <p>Cancel</p>
+                </button>
+
+                <button class="btn btn-light" (click)="this.machineService.addNewMachine(this.newMachineName, this.newMachineType)" [disabled]="newMachineName.length == 0 || newMachineType.length == 0">
+                    <i class="bi bi-check"></i>
+                    <p>Done</p>
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="home-footer">
+        <input type="text" placeholder="Search machines" (input)="searchTerm($event)"> 
+    </div>
+
+</div>

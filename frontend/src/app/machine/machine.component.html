@@ -1,0 +1,31 @@
+
+
+<!-- Container of machine card and swipe action icon -->
+<div style="display: flex; flex-direction: row;">
+
+    <!-- Machine card -->
+    <div #machineContainer class="machine-container" (touchstart)="swipe($event, 'start')" (touchmove)="swipe($event, 'move')" (touchend)="swipe($event, 'end')" [style.background-color]="cardColor">
+        <div class="text-container">
+            <div class="machine-name">
+                <h2>{{machine.name}}</h2>
+                <div class="loading-spinner" *ngIf="isLoading()">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </div>
+            <div class="weight">
+                <p>{{daysSinceLastWeight}}</p>
+                <div class="weight-text-area" #weightTextarea contenteditable (focus)="onDivFocus()" (blur)="onDivBlur()" (keydown)="onDivKeydown($event)">{{latestWeightValue}}</div>
+            </div>
+        </div>
+        <div echarts [options]="chartOption" style="width: 100%; aspect-ratio: 1.618/1; position: relative; transform: translateY(1px);" class="demo-chart"></div>
+    </div>  
+    <!-- Swipe action icon -->
+    <div #actionContainer class="action" style="opacity: 0;">
+        <div class="action-item">
+            <img src="assets/weight.svg" style="filter: invert(1); width: 80px; aspect-ratio: 1 / 1;" />
+            <b>Same weight</b>
+        </div>
+    </div>
+</div>
