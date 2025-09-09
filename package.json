@@ -2,18 +2,44 @@
   "name": "angular-app-server",
   "version": "0.0.0",
   "scripts": {
-    "start": "npm-run-all -p backend-tsc frontend",
-    "frontend": "cd /Users/ethanknop/Documents/gif-server/frontend && ng serve --host 0.0.0.0",
-    "backend-tsc": "cd /Users/ethanknop/Documents/gif-server/backend && npx ts-node server.ts"
+    "ng": "ng",
+    "start": "ng serve --host 0.0.0.0",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "16.2.12",
+    "@angular/common": "^16.2.12",
+    "@angular/compiler": "^16.2.12",
+    "@angular/core": "^16.2.12",
+    "@angular/forms": "^16.2.12",
+    "@angular/platform-browser": "^16.2.12",
+    "@angular/platform-browser-dynamic": "^16.2.12",
+    "@angular/router": "^16.2.12",
+    "@angular/service-worker": "^16.2.12",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "echarts": "^5.6.0",
+    "flickity": "^3.0.0",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.7.1",
+    "ngx-cookie-service": "^16.1.0",
+    "ngx-device-detector": "^6.0.2",
+    "ngx-echarts": "^19.0.0",
+    "ngx-masonry": "^14.0.1",
+    "rxjs": "~7.8.0",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5"
-  },
-  "main": "index.js",
-  "author": "",
-  "license": "ISC",
-  "description": ""
+    "@angular-devkit/build-angular": "^16.2.11",
+    "@angular/cli": "~16.2.11",
+    "@angular/compiler-cli": "^16.2.12",
+    "@types/bootstrap": "^5.2.10",
+    "@types/flickity": "^2.2.11",
+    "typescript": "~4.9.4"
+  }
 }
