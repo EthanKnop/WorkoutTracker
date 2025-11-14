@@ -8,10 +8,10 @@ import { Machine } from 'src/models/machine';
 export class SettingsService {
 
   darkMode: WritableSignal<boolean> = signal(true);
-  url: string | null = null;
+  url: string | null = 'http://g08oggko08okwo0gkckos4kg.24.217.123.15.sslip.io';
 
   constructor(private http: HttpClient) {
-    this.url = this.extractIpAddress(window.location.href);
+    // this.url = this.extractIpAddress(window.location.href);
     this.applySettingsFromCookie();
   }
 
