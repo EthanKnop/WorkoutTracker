@@ -84,19 +84,99 @@
         }
     }
 
-    .home-footer {
-        position: fixed;
-        display: flex;
-        padding: 1rem;
-        gap: 1rem;
+    .footer-container {
         width: 100vw;
+        margin: 0;
+        position: fixed;
         bottom: 0px;
-        background-color: #f0f0f0;
-        z-index: 110;
+        z-index: 1000;
+        padding: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
 
-        input {
+        .footer-background {
+            height: 100%;
             width: 100%;
-            padding: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
+
+        button {
+            border: none;
+            background: none;
+            i {
+                // color: #303030;
+                color: white;
+            }
+        }
+
+        .footer-top-half {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .search-input {
+                border-radius: 0.5rem;
+                height: 2.5rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                flex-grow: 1;
+                position: relative;
+    
+                input {
+                    width: 100%;
+                    padding: 0.5rem;
+                    color: white;
+                    border: none;
+                    outline: none;
+                    background: none;
+                }
+    
+                // Clear Search Button
+                .clear-search {
+                    position: absolute; // Position the button inside the container
+                    right: 0.5rem; // Align it to the far right
+                    top: 50%; // Center vertically
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    color: white;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    border-radius: 50%;
+            
+                    i {
+                        font-size: 2rem;
+                        color: white;
+                    }
+                }
+            }
+
+        }
+
+        .sort-filter-panel {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 0.5rem;
+            padding: 0.5rem;
+
+            .sort-type {
+                flex-grow: 1;
+            }
+        }
+
     }
+
 }

@@ -43,8 +43,74 @@
         </div>
     </div>
 
-    <div class="home-footer">
-        <input type="text" placeholder="Search machines" (input)="searchTerm($event)"> 
+    <!-- Machine List Footer for Searching, Sorting, and Filtering -->
+    <div class="footer-container">
+        <div class="footer-background">
+
+            <!-- Footer Top Half -->
+            <div class="footer-top-half">
+
+                <!-- Search Input -->
+                <div class="search-input">
+                    <input type="text" placeholder="Search machines" #machineSearch (input)="searchTerm($event)"> 
+
+                    <button class="btn btn-light clear-search" (click)="clearSearchTerm()" *ngIf="machineFilter().length > 0">
+                        <i class="bi bi-x"></i>
+                    </button>
+                </div>
+
+                <!-- Sort and Filter Panel Toggle Button -->
+                <button class="btn btn-light" (click)="this.isFiltersOpen = !this.isFiltersOpen">
+                    <i class="bi bi-funnel-fill"></i>
+                </button>
+            </div>
+
+
+            <!-- Sort and Filter Panel -->
+            <div class="sort-filter-panel" *ngIf="this.isFiltersOpen">
+
+                <!-- <p>Sort by:</p> -->
+                <div class="btn-group sort-type" role="group">
+                    <input type="radio" class="btn-check" id="machine-sort-name" (click)="machineSort.set('Name')" [checked]="machineSort() == 'Name'">
+                    <label class="btn btn-outline-light btn-sm" for="machine-sort-name">Name</label>
+                
+                    <input type="radio" class="btn-check" id="machine-sort-type" (click)="machineSort.set('Type')" [checked]="machineSort() == 'Type'">
+                    <label class="btn btn-outline-light btn-sm" for="machine-sort-type">Type</label>
+                
+                    <input type="radio" class="btn-check" id="machine-sort-last-used" (click)="machineSort.set('Last Used')" [checked]="machineSort() == 'Last Used'">
+                    <label class="btn btn-outline-light btn-sm" for="machine-sort-last-used">Last Used</label>
+                </div>
+
+                <div class="btn-group asc-desc" role="group">
+                    <input type="radio" class="btn-check" id="machine-sort-asc" (click)="machineSortAsc.set(true)" [checked]="machineSortAsc()">
+                    <label class="btn btn-outline-light btn-sm" for="machine-sort-asc">
+                        <i class="bi bi-arrow-up"></i>
+                    </label>
+                
+                    <input type="radio" class="btn-check" id="machine-sort-desc" (click)="machineSortAsc.set(false)" [checked]="!machineSortAsc()">
+                    <label class="btn btn-outline-light btn-sm" for="machine-sort-desc">
+                        <i class="bi bi-arrow-down"></i>
+                    </label>
+                </div>
+
+
+                <!-- Filter Options -->
+                <!-- <div class="filter-options">
+                    <p>Filter by:</p>
+                    <select >
+                        <option value="all">All</option>
+                        <option value="arms">Arms</option>
+                        <option value="legs">Legs</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div> -->
+
+            </div>
+        
+        </div>
     </div>
+
+
+
 
 </div>
