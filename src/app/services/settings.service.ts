@@ -12,6 +12,7 @@ export class SettingsService {
 
   constructor(private http: HttpClient) {
     this.url = this.extractIpAddress(window.location.href);
+    // this.url = '192.168.1.19';
     this.applySettingsFromCookie();
   }
 
